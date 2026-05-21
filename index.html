@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-dark text-white text-center py-5">
+    <div class="container mt-5">
+        <h1 id="titulo" class="text-info">Cargando...</h1>
+        <p id="mensaje" class="lead mt-3"></p>
+        <div class="card bg-secondary text-white mt-4 mx-auto" style="max-width: 400px;">
+            <div class="card-header">Tecnologías (Desde JSON)</div>
+            <ul id="lista" class="list-group list-group-flush text-dark"></ul>
+        </div>
+    </div>
+    <script>
+        fetch('/api/datos')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('titulo').innerText = data.titulo;
+                document.getElementById('mensaje').innerText = data.mensaje;
+                const lista = document.getElementById('lista');
+                data.tecnologias.forEach(tech => {
+                    lista.innerHTML += `<li class="list-group-item">${tech}</li>`;
+                });
+            })
+            .catch(err => console.error(err));
+    </script>
+</body>
+</html>
