@@ -1,5 +1,5 @@
 {
   "titulo": "Entorno de Pre-Producción",
-  "mensaje": "¡Conexión a la base de datos JSON exitosa!",
+  "mensaje": "¡Conexión a la base de datos JSON exitosaaa!",
   "tecnologias": ["Express", "Node.js", "Bootstrap", "Ansible"]
 }
